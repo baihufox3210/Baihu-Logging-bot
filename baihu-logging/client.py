@@ -16,7 +16,7 @@ class DiscordLogger:
         if not self.channel_id:
             raise "Channel ID cannot be empty."
 
-    def _send(self, level: str, message: str):
+    def _send(self, level: str, title: str, message: str):
         if level not in LOG_COLORS:
             raise f"Invalid level: {level}. Available levels: {list(LOG_COLORS.keys())}"
 
@@ -28,7 +28,7 @@ class DiscordLogger:
         payload = {
             "embeds": [
                 {
-                    "title": f"{level} - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+                    "title": f"{title}",
                     "description": message,
                     "color": LOG_COLORS[level],
                     "timestamp": datetime.now().isoformat(),
@@ -47,17 +47,17 @@ class DiscordLogger:
         
         return response
 
-    def debug(self, message: str):
-        return self._send("DEBUG", message)
+    def debug(self, title: str, message: str):
+        return self._send("DEBUG", title, message)
 
-    def info(self, message: str):
-        return self._send("INFO", message)
+    def info(self, title: str, message: str):
+        return self._send("INFO", title, message)
 
-    def warning(self, message: str):
-        return self._send("WARNING", message)
+    def warning(self, title: str, message: str):
+        return self._send("WARNING", title, message)
 
-    def error(self, message: str):
-        return self._send("ERROR", message)
+    def error(self, title: str, message: str):
+        return self._send("ERROR", title, message)
 
-    def critical(self, message: str):
-        return self._send("CRITICAL", message)
+    def critical(self, title: str, message: str):
+        return self._send("CRITICAL", title, message)
