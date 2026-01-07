@@ -8,6 +8,7 @@ setup(
         "requests",
     ],
     author="Baihu",
+    author_email="baihu3210@gmail.com",
     description="A logging bot which can log messages to Discord",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
