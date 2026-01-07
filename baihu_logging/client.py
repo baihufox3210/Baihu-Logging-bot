@@ -1,9 +1,7 @@
 import requests
-from colorama import init
+from colorama import Style
 from datetime import datetime
 from .constants import LOG_COLORS, COLORAMA_COLORS, STATUS_ICONS, BASE_URL
-
-init(autoreset=True)
 
 class DiscordLogger:
     def __init__(self, token: str, channel_id: str):
@@ -20,7 +18,7 @@ class DiscordLogger:
             raise "Channel ID cannot be empty."
 
     def _send(self, level: str, title: str, message: str):
-        print(f"{COLORAMA_COLORS[level]} {datetime.now().strftime('%H:%M:%S')} {STATUS_ICONS[level]} :" + message)
+        print(f"{COLORAMA_COLORS[level]} {datetime.now().strftime('%H:%M:%S')} {STATUS_ICONS[level]} : {Style.RESET_ALL}" + message)
 
         headers = {
             "Authorization": f"Bot {self.token}",
