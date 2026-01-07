@@ -1,1 +1,1 @@
-from .client import DiscordLogger
+from .client import DiscordLogger as logging
