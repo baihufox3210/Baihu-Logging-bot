@@ -16,6 +16,14 @@ COLORAMA_COLORS = {
     "CRITICAL": Fore.MAGENTA
 }
 
+STATUS_ICONS = {
+    "DEBUG": "•",
+    "INFO": "✓",
+    "WARNING": "!",
+    "ERROR": "✗",
+    "CRITICAL": "⚠",
+}
+
 LOG_LEVELS = list(LOG_COLORS.keys())
 
 BASE_URL = "https://discord.com/api/v10"
