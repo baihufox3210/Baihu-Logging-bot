@@ -20,7 +20,7 @@ class DiscordLogger:
             raise "Channel ID cannot be empty."
 
     def _send(self, level: str, title: str, message: str):
-        print(f"{COLORAMA_COLORS[level]} {datetime.now().strftime("%H:%M:%S")} {level}: {message}")
+        print(f"{COLORAMA_COLORS[level]} {datetime.now().strftime('%H:%M:%S')} {level}: {message}")
 
         headers = {
             "Authorization": f"Bot {self.token}",
